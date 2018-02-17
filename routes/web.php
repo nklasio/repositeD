@@ -16,6 +16,15 @@ Route::get('/', function () {
     $packages = App\Package::paginate(9);
 
     return view('packages')->with('packages', $packages);
+})->name('packages');
+
+Route::get('/p/{id}', function($id) {
+    try {
+        $package = DB::table('packages')->where('id', '=', $id)->get()[0];
+        return view('package')->with('package', $package);
+    } catch (Exception $ex) {
+        abort(404);
+    }
 });
 
 Route::get('/seed', function () {

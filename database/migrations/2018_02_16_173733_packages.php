@@ -20,7 +20,7 @@ class Packages extends Migration
             $table->uuid('author');
             $table->string('git')->nullable();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('imageUrl')->nullable();
             $table->integer('minor');
             $table->integer('major');

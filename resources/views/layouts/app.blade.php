@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSS  -->
-    <link href="fonts/materialicon.css" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{ URL::asset('fonts/materialicon.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{{ URL::asset('css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
@@ -65,7 +65,7 @@
                             <a class="dropdown-trigger black-text " href="#! " data-target="dropdown-nav ">
                                 John Doe
                                 <i class="material-icons right ">arrow_drop_down</i>
-                                <img src="images/pb.png " alt="Profile Picture " class="picture ">
+                                <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture " class="picture ">
                             </a>
                         </li>
                     </ul>
@@ -86,7 +86,7 @@
             </a>
         </li>
         <li class="isActiveLi ">
-            <a class="waves-effect white-text isActiveA " href="packages.html ">
+            <a class="waves-effect white-text isActiveA " href="{{ route('packages') }}">
                 <i class="material-icons isActiveIcon ">person</i>Packages
             </a>
         </li>

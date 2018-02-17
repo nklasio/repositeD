@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/p/{id}', function($id) {
+    try {
+        $package = DB::table('packages')->where('id', '=', $id)->get()[0];
+        return ['package' => $package];
+    } catch (Exception $ex) {
+        abort(404);
+    }
+});

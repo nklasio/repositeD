@@ -27,6 +27,10 @@ input[type="search"] {
     color: #42a5f5 !important;
 }
 
+.cardLink {
+    color: rgba(0, 0, 0, 0.87);
+}
+
 .picture {
     height: 48px;
     float: right;
