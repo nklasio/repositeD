@@ -29,78 +29,77 @@
         </li>
     </ul>
 
-    <nav>
-        <div class="nav-wrapper white">
-            <div class="row">
-                <div class="col s12 m6 l9">
-                    <form>
-                        <div class="input-field" style="height: 64px;">
-                            <input id="search-package" name="search-package" type="search" placeholder="Search packages or authors.">
-                            <label class="label-icon " for="search-package ">
-                                <i class="material-icons black-text ">search</i>
-                            </label>
-                            <i class="material-icons ">close</i> -->
-                        </div>
-                    </form>
-                </div>
-                <div class="col s12 m6 l3 ">
-                    <ul class="right ">
-                        <li>
-                            <a href="!# ">
-                                <i class="material-icons black-text ">help_outline</i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="!# ">
-                                <i class="material-icons black-text ">chat</i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="!# ">
-                                <i class="material-icons black-text ">notifications</i>
-                            </a>
-                        </li>
-                        <!-- Dropdown Trigger -->
-                        <li>
-                            <a class="dropdown-trigger black-text " href="#! " data-target="dropdown-nav ">
-                                John Doe
-                                <i class="material-icons right ">arrow_drop_down</i>
-                                <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture " class="picture ">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <ul id="dropdown-nav-mobileview" class="dropdown-content">
+        <li>
+          <div class="right"> John Doe</div>
+          <img src="images/pb.png" alt="Profile Picture" class="picture right"></li>
+        <li class="divider"></li>
+        <li>Logout</li>
+      
+      </ul>
 
-    <ul id="slide-out " class="sidenav sidenav-fixed blue-grey " style="padding-top: 50px; ">
+      <nav>
+        <div class="nav-wrapper white">
+          <div class="row">
+            <div class="col s1 hide-on-med-and-up">
+              <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+            </div>
+            <div class="col s11 m6 l9">
+              <form>
+                <div class="input-field" style="height: 64px;">
+                  <input id="search-package" name="search-package" type="search" placeholder="Search packages or authors">
+                  <label class="label-icon" for="search-package"><i class="material-icons black-text">search</i></label>
+                  <i class="material-icons hide-on-small-and-down">close</i> -->
+                </div>
+              </form>
+            </div>
+            <div class="col m6 l3 hide-on-small-and-down">
+              <ul class="right">
+                <li><a href="!#"><i class="material-icons black-text">help_outline</i></a></li>
+                <li><a href="!#"><i class="material-icons black-text">chat</i></a></li>
+                <li><a href="!#"><i class="material-icons black-text">notifications</i></a></li>
+                <!-- Dropdown Trigger -->
+                <li>
+                  <a class="dropdown-trigger black-text" href="#!" data-target="dropdown-nav">
+                    <i class="material-icons right">arrow_drop_down</i>
+                    <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture" class="picture right">
+                    <div class="right"> John Doe</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <ul id="slide-out" class="sidenav sidenav-fixed blue-grey" style="padding-top: 50px;">
         <li>
-            <a class="waves-effect white-text " href="#! ">
-                <i class="material-icons white-text ">home</i>Home
-            </a>
+          <a class="waves-effect white-text" href="#!">
+            <i class="material-icons white-text">home</i>Home
+          </a>
         </li>
         <li>
-            <a class="waves-effect white-text " href="#! ">
-                <i class="material-icons white-text ">dashboard</i>Dashboard
-            </a>
+          <a class="waves-effect white-text" href="#!">
+            <i class="material-icons white-text">dashboard</i>Dashboard
+          </a>
         </li>
-        <li class="isActiveLi ">
-            <a class="waves-effect white-text isActiveA " href="{{ route('packages') }}">
-                <i class="material-icons isActiveIcon ">person</i>Packages
-            </a>
-        </li>
-        <li>
-            <a class="waves-effect white-text " href="#! ">
-                <i class="material-icons white-text ">help_outline</i>Help Center
-            </a>
+        <li class="isActiveLi">
+          <a class="waves-effect white-text isActiveA" href="{{ route('packages') }}">
+            <i class="material-icons isActiveIcon">person</i>Packages
+          </a>
         </li>
         <li>
-            <a class="waves-effect white-text " href="#! ">
-                <i class="material-icons white-text ">settings</i>Settings
-            </a>
+          <a class="waves-effect white-text" href="#!">
+            <i class="material-icons white-text">help_outline</i>Help Center
+          </a>
         </li>
-    </ul>
+        <li>
+          <a class="waves-effect white-text" href="#!">
+            <i class="material-icons white-text">settings</i>Settings
+          </a>
+        </li>
+      </ul>
+      
     <!-- <a href="# " data-target="slide-out " class="sidenav-trigger "><i class="material-icons ">menu</i></a> -->
 
     <div class="myContainer ">

@@ -3,13 +3,23 @@ header, body, footer {
 }
 
 @media only screen and (max-width : 992px) {
-    header, main, footer {
+    header, body, footer {
         padding-left: 0;
+    }
+
+    input[type="search"] {
+        height: 56px !important; /* or height of nav */
     }
 }
 
-input[type="search"] {
-    height: 64px !important; /* or height of nav */
+@media only screen and (min-width: 993px) {
+    input[type="search"] {
+        height: 64px !important; /* or height of nav */
+    }
+}
+
+.cardLink {
+    color: rgba(0, 0, 0, 0.87);
 }
 
 .isActiveLi {
@@ -27,29 +37,26 @@ input[type="search"] {
     color: #42a5f5 !important;
 }
 
-.cardLink {
-    color: rgba(0, 0, 0, 0.87);
-}
-
 .picture {
     height: 48px;
-    float: right;
-    margin-top: 8px;
+    margin-top: 0.8vh;
     margin-left: 8px;
+    margin-right: -15px;
 }
 
 .myCardTitle {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 20px !important;
+    font-weight: bold !important;
 }
 
 .myContainer {
     margin-left: 50px;
-    margin-right: 150px;
+    margin-right: 50px;
 }
 
 .package-logo {
     height: 128px;
+    width: 128px;
 }
 
 .isPageActiveLi {
