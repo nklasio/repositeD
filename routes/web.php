@@ -18,6 +18,23 @@ Route::get('/', function () {
     return view('packages')->with('packages', $packages);
 })->name('packages');
 
+
+Route::get('/login', function () {
+    if(Auth::viaRemember()) {
+        return redirect()->back();
+    } else {
+        return view('login');
+    }
+})->name('login');
+
+Route::post('register', 'UserController@register')->name('userRegister');
+Route::post('login', 'UserController@login')->name('userLogin');
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->to(route('packages'));
+})->name('logout');
+
 Route::get('/p/{id}', function($id) {
     try {
         $package = DB::table('packages')->where('id', '=', $id)->get()[0];

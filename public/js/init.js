@@ -3,5 +3,6 @@ $(document).ready(function () {
 
     $('.dropdown-trigger').dropdown();
 
-    $('.tooltipped').tooltip();
+    $('.tooltipped').tooltip();  
+    $('ul.tabs').tabs();
 });

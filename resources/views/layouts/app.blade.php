@@ -18,23 +18,29 @@
     <!-- Dropdown Structure -->
     <ul id="dropdown-nav" class="dropdown-content">
         <li>
-            <a href="#!">Example 1</a>
+            <a href="#!">Profile</a>
         </li>
         <li>
-            <a href="#!">Example 2</a>
+            <a href="#!">Settings</a>
         </li>
         <li class="divider"></li>
         <li>
-            <a href="#!">Log out</a>
+            <a href="{{ route('logout') }}">Log out</a>
         </li>
     </ul>
 
     <ul id="dropdown-nav-mobileview" class="dropdown-content">
         <li>
-          <div class="right"> John Doe</div>
-          <img src="images/pb.png" alt="Profile Picture" class="picture right"></li>
+          @if($user = Auth::user())
+            <div class="right">{!! $user->name !!}</div>
+            <img src="images/pb.png" alt="Profile Picture" class="picture right"> 
+          @else
+            <div class="right"> John Doe</div>
+            <img src="images/pb.png" alt="Profile Picture" class="picture right"> 
+          @endif
+        </li>
         <li class="divider"></li>
-        <li>Logout</li>
+        <li>Log out</li>
       
       </ul>
 
@@ -60,11 +66,19 @@
                 <li><a href="!#"><i class="material-icons black-text">notifications</i></a></li>
                 <!-- Dropdown Trigger -->
                 <li>
-                  <a class="dropdown-trigger black-text" href="#!" data-target="dropdown-nav">
-                    <i class="material-icons right">arrow_drop_down</i>
-                    <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture" class="picture right">
-                    <div class="right"> John Doe</div>
-                  </a>
+                    @if($user = Auth::user())
+                      <a class="dropdown-trigger black-text" href="#!" data-target="dropdown-nav">
+                        <i class="material-icons right">arrow_drop_down</i>
+                        
+                        <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture" class="picture right">
+                        <div class="right">{!! $user->name !!}</div>
+                      </a>
+                    @else
+                      <a class="black-text" href="{{ route('login') }}" data-target="dropdown-nav">
+                        <img src="{{ URL::asset('images/pb.png') }} " alt="Profile Picture" class="picture right">
+                        <div class="right">Login</div>
+                      </a>
+                    @endif
                 </li>
               </ul>
             </div>
