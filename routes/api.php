@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Package;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/p/{id}', function($id) {
     try {
-        $package = DB::table('packages')->where('id', '=', $id)->get()[0];
+        $package = Package::where('id' , '=', $id)->get()[0];
+        $package->author = $package->author()->get()[0]->name;
+        
         return ['package' => $package];
     } catch (Exception $ex) {
         abort(404);
