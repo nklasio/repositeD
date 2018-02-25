@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 
 class UserController extends Controller
@@ -23,7 +24,10 @@ class UserController extends Controller
         }
 
         $data = $request->all();
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']], $data['remember'])) {
+        $remember = 0;
+        if(isset($data['remember']))
+            $remember = $data['remember'];
+        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']], $remember)) {
             return redirect()->to(route('packages'));
         } else {
             return redirect()->back();
@@ -50,5 +54,19 @@ class UserController extends Controller
         ]);
         Auth::login($user);
         return redirect()->to(route('packages'));
+    }
+
+    public function profile() {
+        if($user = Auth::user()) {
+            return view('profile');
+        } else {
+            return redirect()->to(route('login'));
+        }
+    }
+
+    public function getUser($uuid) {
+        $user = User::where('uuid', '=', $uuid)->get()[0];
+        $packages = $user->packages()->get();
+        return view('user')->with('user', $user);
     }
 }

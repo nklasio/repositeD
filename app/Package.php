@@ -23,6 +23,10 @@ class Package extends Model
         'author', 'git', 'name', 'description', 'minor', 'major', 'patch'
     ];
 
+    public function author() {
+        return $this->belongsTo('App\User', 'author', 'uuid');
+    }
+
     use UuidForKey;
 
 }
