@@ -18,7 +18,7 @@
     <!-- Dropdown Structure -->
     <ul id="dropdown-nav" class="dropdown-content">
         <li>
-            <a href="#!">Profile</a>
+            <a href="{{ route('profile') }}">Profile</a>
         </li>
         <li>
             <a href="#!">Settings</a>
@@ -29,20 +29,20 @@
         </li>
     </ul>
 
-    <ul id="dropdown-nav-mobileview" class="dropdown-content">
-        <li>
-          @if($user = Auth::user())
-            <div class="right">{!! $user->name !!}</div>
-            <img src="images/pb.png" alt="Profile Picture" class="picture right"> 
-          @else
-            <div class="right"> John Doe</div>
-            <img src="images/pb.png" alt="Profile Picture" class="picture right"> 
-          @endif
-        </li>
-        <li class="divider"></li>
-        <li>Log out</li>
-      
-      </ul>
+  <!-- Dropdown Structure -->
+  <ul id="dropdown-nav-mobileview" class="dropdown-content">
+      <li>
+          <a href="{{ route('profile') }}">Profile</a>
+      </li>
+      <li>
+          <a href="#!">Settings</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+          <a href="{{ route('logout') }}">Log out</a>
+      </li>
+  </ul>
+
 
       <nav>
         <div class="nav-wrapper white">
@@ -55,7 +55,7 @@
                 <div class="input-field" style="height: 64px;">
                   <input id="search-package" name="search-package" type="search" placeholder="Search packages or authors">
                   <label class="label-icon" for="search-package"><i class="material-icons black-text">search</i></label>
-                  <i class="material-icons hide-on-small-and-down">close</i> -->
+                  <i class="material-icons hide-on-small-and-down">close</i>
                 </div>
               </form>
             </div>
@@ -88,9 +88,21 @@
 
       <ul id="slide-out" class="sidenav sidenav-fixed blue-grey" style="padding-top: 50px;">
         <li>
-          <a class="waves-effect white-text" href="#!">
+          <a class="waves-effect white-text" >
             <i class="material-icons white-text">home</i>Home
           </a>
+        </li>
+        <li class="hide-on-med-and-up">
+            @if($user = Auth::user())
+              <a class="dropdown-trigger waves-effect white-text"data-target="dropdown-nav-mobileview">
+                <i class="material-icons white-text right">arrow_drop_down</i>
+                <i class="material-icons white-text">person</i>{!! $user->name !!}
+              </a>
+            @else
+              <a class="dropdown-trigger waves-effect white-text" href="{{ route('login') }}">
+                  <i class="material-icons white-text">person</i>Login
+              </a>
+            @endif
         </li>
         <li>
           <a class="waves-effect white-text" href="#!">
@@ -152,12 +164,11 @@
             </li>
         </ul>  --}}
     </div>
-    </div>
 
     <!--  Scripts-->
-    <script type="text/javascript " src="js/jquery.min.js "></script>
-    <script type="text/javascript " src="js/materialize.js "></script>
-    <script type="text/javascript " src="js/init.js "></script>
+    <script type="text/javascript " src="{{ URL::asset('js/jquery.min.js') }}"></script>
+    <script type="text/javascript " src="{{ URL::asset('js/materialize.js') }}"></script>
+    <script type="text/javascript " src="{{ URL::asset('js/init.js') }}"></script>
 
 </body>
 
