@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('packages')->with('packages', $packages);
 })->name('packages');
 
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::get('/u/{uuid}', 'UserController@getUser')->name('getUser');
 
 Route::get('/login', function () {
     if(Auth::viaRemember()) {
@@ -29,6 +31,7 @@ Route::get('/login', function () {
 
 Route::post('register', 'UserController@register')->name('userRegister');
 Route::post('login', 'UserController@login')->name('userLogin');
+Route::post('update', 'UserController@updateUser')->name('userUpdate');
 
 Route::get('/logout', function () {
     Auth::logout();
