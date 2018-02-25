@@ -29,7 +29,7 @@
                             <a href="{{ $package->git }}" class="right ">
                                 <i class="material-icons black-text ">code</i>
                             </a>
-                            <a href="# " class="right ">
+                            <a href="{{ route('getUser', ['uuid' => $package->author])}}" class="right ">
                                 <i class="material-icons black-text ">account_box</i>
                             </a>
                         </div>
@@ -52,8 +52,6 @@
                         <span class="myCardTitle activator">{!! $package->name !!}
                             <i class="material-icons right">more_vert</i>
                         </span>
-                        </span>
-
                     </div>
                     <div class="card-action">
                         <a href="pacd://localhost:8000/api/p/{{ $package->id }}">
@@ -62,7 +60,7 @@
                         <a href="{{ $package->git }}">
                             <i class="material-icons black-text">code</i>
                         </a>
-                        <a href="#">
+                        <a href="{{ route('getUser', ['uuid' => $package->author])}}">
                             <i class="material-icons black-text">account_box</i>
                         </a>
                     </div>
