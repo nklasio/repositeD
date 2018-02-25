@@ -24,7 +24,7 @@
                     <a href="{{ $package->git }}" class="right ">
                         <i class="material-icons black-text ">code</i>
                     </a>
-                    <a href="# " class="right ">
+                    <a href="{{ route('getUser', ['uuid' => $package->author])}}" class="right ">
                         <i class="material-icons black-text ">account_box</i>
                     </a>
                 </div>
