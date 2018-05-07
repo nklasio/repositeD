@@ -28,3 +28,12 @@ Route::get('/p/{id}', function($id) {
         abort(404);
     }
 });
+
+Route::get('/s/{name}', function($name) {
+    try {
+        $packages = Package::where('name', 'LIKE', '%'.$name.'%')->get();
+        return ['packages' => $packages];
+    } catch(Exception $ex) {
+        abort(404);
+    }
+});
